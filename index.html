@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+  <title>Change Calculator</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+</head>
+<body>
+  <div ng-controller="mainCtrl as mainCtrl">
+      <h1>Change Calculator</h1>
+      <form>
+          <label>How much is due for the sale?</label>
+          <input type="text" id="cost" value="12.34"/>
+          <label>How much has the customer given you?</label>
+          <input type="text" id="given" value="20.00"/>
+      </form>
+      <div id="dollars">Dollars = </div>
+      <div id="quarters">Quarters = </div>
+      <div id="dimes">Dimes = </div>
+      <div id="nickels">Nickels = </div>
+      <div id="pennies">Pennies = {{mainCtrl.message}}{{mainCtrl.amtDue}}{{mainCtrl.amtGiven}}</div>
+      
+    </div>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>  
+  <script src="index.js"></script>
+  <script src="angular.js"></script>
+</body>
+</html>
