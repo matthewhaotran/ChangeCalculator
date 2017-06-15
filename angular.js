@@ -1,20 +1,23 @@
 angular.module('app', []);
 angular
-	.module('app')
-	.controller('mainCtrl', mainCtrl);
+  .module('app')
+  .controller('mainCtrl', mainCtrl);
 
 function mainCtrl() {
-	var vm = this;
+  var vm = this;
 
-    vm.denominations = {
-      oneDollar: 100,
-      quarter: 25,
-      dime: 10,
-      nickel: 5,
-      penny: 1
-    };
+  vm.denominations = {
+    oneDollar: 100,
+    quarter: 25,
+    dime: 10,
+    nickel: 5,
+    penny: 1
+  };
 
-    vm.calculate = function (cost, given) {
+  vm.done = false;
+
+  vm.calculate = function (cost, given) {
+
     vm.amtDue = Math.floor($('#cost').val() * 100);
     vm.amtGiven = Math.floor($('#given').val() * 100);
     vm.change = vm.amtGiven - vm.amtDue;
@@ -28,6 +31,24 @@ function mainCtrl() {
     vm.change -= (vm.nickels * vm.denominations.nickel);
     vm.pennies = Math.floor(vm.change / vm.denominations.penny);
     vm.change -= (vm.pennies * vm.denominations.penny);
+  }
+
+
+
+  vm.toggle = function () {
+    vm.amtDue = Math.floor($('#cost').val() * 100);
+    vm.amtGiven = Math.floor($('#given').val() * 100);
+    if (vm.amtDue > vm.amtGiven) {
+      alert('Not enough money given!');
+      return vm.done = false;
     }
+    vm.done = true;
+  }
 
 }
+
+$("#given").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#calculate").click();
+    }
+});

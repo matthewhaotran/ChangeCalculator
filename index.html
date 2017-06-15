@@ -1,7 +1,8 @@
 <!doctype html>
 <html ng-app="app">
   <head>
-    <title>Change Calculator</title>  
+    <title>Change Calculator</title> 
+    <script src="main.css"></script> 
   </head>
   <body>
     <div class="container" ng-controller="mainCtrl as mainCtrl">
@@ -14,20 +15,20 @@
           <input id="cost" type="text" class="form-control" />
         </div>
       </div>
-      <div class="col-sm-6">
+          <div class="col-sm-6">
         <div class="form-group">
           <label>Amount Given</label>
           <input id="given" type="text" class="form-control" />
         </div>
       </div>
     </div>
-    <button id="btnCalculate" class="btn btn-primary text-center center-block" ng-click="mainCtrl.calculate()">Calculate</button>
+    <button id="btnCalculate" class="btn btn-primary text-center center-block" ng-click="mainCtrl.calculate(); mainCtrl.toggle()">Calculate</button>
   </div>
-  <div class="well text-center">
+  <div class="well text-center" ng-show="mainCtrl.done">
     <h1>Dollars</h1>
     <p id="dollars" class="lead">{{mainCtrl.dollars}}</p>
   </div>
-  <div class="well text-center">
+  <div class="well text-center" ng-show="mainCtrl.done">
     <div class="row">
       <div class="col-sm-3">
         <h1>Quarters</h1>
